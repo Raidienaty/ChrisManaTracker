@@ -51,6 +51,9 @@ public class ManaTrackerController extends AnchorPane
     @FXML
     private Button loadButton;
 
+    private int maxMana;
+    private int currentManaAmount;
+
     public Group initializeManaTracker(Stage primaryStage) throws IOException
     {
         Parent root = loadManaTrackerFXML();
@@ -113,5 +116,42 @@ public class ManaTrackerController extends AnchorPane
     private void setPrimaryStage(Stage primaryStage)
     {
         this.primaryStage = primaryStage;
+    }
+
+    @FXML
+    private void removeMana()
+    {
+        String removeManaText = removeManaField.getText();
+
+        if (removeManaText.isEmpty())
+            return;
+
+        currentManaAmount -= Integer.parseInt(removeManaText);
+
+        currentMana.setText(Integer.toString(currentManaAmount));
+    }
+
+    @FXML
+    private void addMana()
+    {
+        String addManaText = addManaField.getText();
+
+        if (addManaText.isEmpty())
+            return;
+
+        currentManaAmount += Integer.parseInt(addManaText);
+
+        currentMana.setText(Integer.toString(currentManaAmount));
+    }
+
+    @FXML
+    private void changeMaxMana()
+    {
+        String changeMaxManaText = changeMaxManaField.getText();
+
+        if (changeMaxManaText.isEmpty())
+            return;
+
+        maxMana = Integer.parseInt(changeMaxManaText);
     }
 }
