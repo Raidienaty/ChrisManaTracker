@@ -135,6 +135,13 @@ public class ManaTrackerController extends AnchorPane
     }
 
     @FXML
+    private void resetMana()
+    {
+        currentMana.setText(Integer.toString(0));
+        currentManaAmount = 0;
+    }
+
+    @FXML
     private void removeMana()
     {
         String removeManaText = removeManaField.getText();
@@ -147,6 +154,8 @@ public class ManaTrackerController extends AnchorPane
         currentManaAmount -= Integer.parseInt(removeManaText);
 
         currentMana.setText(Integer.toString(currentManaAmount));
+
+        removeManaField.clear();
     }
 
     @FXML
@@ -159,9 +168,16 @@ public class ManaTrackerController extends AnchorPane
         else if (!checkIfInteger(addManaText))
             return;
 
-        currentManaAmount += Integer.parseInt(addManaText);
+        int mana = Integer.parseInt(addManaText);
+
+        if (mana + currentManaAmount > maxMana)
+            return;
+        else
+            currentManaAmount += mana;
 
         currentMana.setText(Integer.toString(currentManaAmount));
+
+        addManaField.clear();
     }
 
     @FXML
@@ -175,5 +191,7 @@ public class ManaTrackerController extends AnchorPane
             return;
 
         maxMana = Integer.parseInt(changeMaxManaText);
+
+        changeMaxManaField.clear();
     }
 }
