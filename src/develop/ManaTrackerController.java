@@ -55,9 +55,49 @@ public class ManaTrackerController extends AnchorPane
     {
         Parent root = loadManaTrackerFXML();
 
+        syncModifyManaValuePane(root);
+        syncResetManaPane(root);
+        syncManaPane(root);
+        syncNameLoadPane(root);
+
         setPrimaryStage(primaryStage);
 
         return new Group(root);
+    }
+
+    private void syncModifyManaValuePane(Parent root)
+    {
+        modifyManaValuePane = (AnchorPane) root.getChildrenUnmodifiable().get(0);
+
+        changeMaxManaField = (TextField) modifyManaValuePane.getChildren().get(0);
+        changeMaxManaButton = (Button) modifyManaValuePane.getChildren().get(1);
+
+        addManaField = (TextField) modifyManaValuePane.getChildren().get(2);
+        addManaButton = (Button) modifyManaValuePane.getChildren().get(3);
+
+        removeManaField = (TextField) modifyManaValuePane.getChildren().get(4);
+        removeManaButton = (Button) modifyManaValuePane.getChildren().get(5);
+    }
+
+    private void syncResetManaPane(Parent root)
+    {
+        resetManaPane = (AnchorPane) root.getChildrenUnmodifiable().get(1);
+    }
+
+    private void syncManaPane(Parent root)
+    {
+        currentManaPane = (AnchorPane) root.getChildrenUnmodifiable().get(2);
+
+        currentMana = (Text) currentManaPane.getChildren().get(0);
+    }
+
+    private void syncNameLoadPane(Parent root)
+    {
+        nameLoadPane = (AnchorPane) root.getChildrenUnmodifiable().get(3);
+
+        name = (Text) nameLoadPane.getChildren().get(0);
+        loadButton = (Button) nameLoadPane.getChildren().get(1);
+        newButton = (Button) nameLoadPane.getChildren().get(2);
     }
 
     private Parent loadManaTrackerFXML() throws IOException
