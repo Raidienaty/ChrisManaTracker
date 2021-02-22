@@ -1,5 +1,7 @@
 package develop;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -12,7 +14,13 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ManaTrackerController extends AnchorPane
 {
@@ -55,6 +63,7 @@ public class ManaTrackerController extends AnchorPane
 
     private int maxMana;
     private int currentManaAmount;
+    private List<SaveData> saveDataList;
 
     public Group initializeManaTracker(Stage primaryStage) throws IOException
     {
@@ -65,9 +74,24 @@ public class ManaTrackerController extends AnchorPane
         syncManaPane(root);
         syncNameLoadPane(root);
 
+        loadSaveData();
+
         setPrimaryStage(primaryStage);
 
         return new Group(root);
+    }
+
+    private void loadSaveData() throws IOException
+    {
+        InputStream inputStream = new FileInputStream("src/develop/resources/saveData.json");
+
+        String saveData = new String(inputStream.readAllBytes(), StandardCharsets.UTF_8);
+
+        saveDataList = new Gson().fromJson(saveData, new TypeToken<ArrayList<SaveData>>(){}.getType());
+
+        maxMana = saveDataList.get(0).getMax();
+        currentManaAmount = saveDataList.get(0).getCurrent();
+        currentMana.setText(Integer.toString(currentManaAmount));
     }
 
     private void syncModifyManaValuePane(Parent root)
