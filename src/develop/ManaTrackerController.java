@@ -1,5 +1,7 @@
 package develop;
 
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Group;
@@ -118,12 +120,28 @@ public class ManaTrackerController extends AnchorPane
         this.primaryStage = primaryStage;
     }
 
+    private Boolean checkIfInteger(String currentString)
+    {
+        try
+        {
+            Integer.parseInt(currentString);
+        }
+        catch (NumberFormatException e)
+        {
+            return false;
+        }
+
+        return true;
+    }
+
     @FXML
     private void removeMana()
     {
         String removeManaText = removeManaField.getText();
 
         if (removeManaText.isEmpty())
+            return;
+        else if (!checkIfInteger(removeManaText))
             return;
 
         currentManaAmount -= Integer.parseInt(removeManaText);
@@ -138,6 +156,8 @@ public class ManaTrackerController extends AnchorPane
 
         if (addManaText.isEmpty())
             return;
+        else if (!checkIfInteger(addManaText))
+            return;
 
         currentManaAmount += Integer.parseInt(addManaText);
 
@@ -150,6 +170,8 @@ public class ManaTrackerController extends AnchorPane
         String changeMaxManaText = changeMaxManaField.getText();
 
         if (changeMaxManaText.isEmpty())
+            return;
+        else if (!checkIfInteger(changeMaxManaText))
             return;
 
         maxMana = Integer.parseInt(changeMaxManaText);
