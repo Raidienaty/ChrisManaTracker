@@ -7,7 +7,7 @@
 <?import javafx.scene.text.Text?>
 
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="454.0" prefWidth="600.0" style="-fx-background-color: #2E2F31;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root type="javafx.scene.layout.AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="454.0" prefWidth="600.0" style="-fx-background-color: #2E2F31;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <AnchorPane layoutX="31.0" layoutY="86.0" prefHeight="339.0" prefWidth="200.0" style="-fx-background-color: #1C1D1F;">
          <children>
@@ -50,4 +50,4 @@
          </children>
       </AnchorPane>
    </children>
-</AnchorPane>
+</fx:root>

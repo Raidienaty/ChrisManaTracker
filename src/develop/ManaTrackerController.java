@@ -20,7 +20,7 @@ public class ManaTrackerController extends AnchorPane
 
         this.primaryStage = primaryStage;
 
-        return new Group();
+        return new Group(root);
     }
 
     private Parent loadManaTrackerFXML() throws IOException
