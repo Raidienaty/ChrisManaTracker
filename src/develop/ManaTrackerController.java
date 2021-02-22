@@ -18,7 +18,7 @@ public class ManaTrackerController extends AnchorPane
     {
         Parent root = loadManaTrackerFXML();
 
-        this.primaryStage = primaryStage;
+        setPrimaryStage(primaryStage);
 
         return new Group(root);
     }
@@ -31,5 +31,10 @@ public class ManaTrackerController extends AnchorPane
         fxmlLoader.setController(this);
 
         return fxmlLoader.load();
+    }
+
+    private void setPrimaryStage(Stage primaryStage)
+    {
+        this.primaryStage = primaryStage;
     }
 }
