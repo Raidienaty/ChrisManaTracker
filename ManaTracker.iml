@@ -7,5 +7,86 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../MessagingApplication/JavaLibraries/Java-WebSocket-1.5.1.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../MessagingApplication/JavaLibraries/javax.websocket-api-1.1.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../MessagingApplication/JavaLibraries/signal-service-java-2.13.9.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../MessagingApplication/JavaLibraries/slf4j-api-1.7.30.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../MessagingApplication/JavaLibraries/slf4j-simple-1.7.30.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/../MessagingApplication/JavaLibraries/JavaFX/javafx-sdk-11.0.2/lib" />
+        </CLASSES>
+        <JAVADOC />
+        <NATIVE>
+          <root url="file://$MODULE_DIR$/../MessagingApplication/JavaLibraries/JavaFX/javafx-sdk-11.0.2/lib" />
+        </NATIVE>
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/../MessagingApplication/JavaLibraries/JavaFX/javafx-sdk-11.0.2/lib" />
+        </SOURCES>
+        <jarDirectory url="file://$MODULE_DIR$/../MessagingApplication/JavaLibraries/JavaFX/javafx-sdk-11.0.2/lib" recursive="false" />
+        <jarDirectory url="file://$MODULE_DIR$/../MessagingApplication/JavaLibraries/JavaFX/javafx-sdk-11.0.2/lib" recursive="false" type="SOURCES" />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/../MessagingApplication/JavaLibraries/GSON" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+        <jarDirectory url="file://$MODULE_DIR$/../MessagingApplication/JavaLibraries/GSON" recursive="false" />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/../MessagingApplication/JavaLibraries/BouncyCastle" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+        <jarDirectory url="file://$MODULE_DIR$/../MessagingApplication/JavaLibraries/BouncyCastle" recursive="false" />
+      </library>
+    </orderEntry>
   </component>
 </module>
