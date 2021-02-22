@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<fx:root type="javafx.scene.layout.AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="454.0" prefWidth="600.0" style="-fx-background-color: #2E2F31;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <AnchorPane layoutX="31.0" layoutY="86.0" prefHeight="339.0" prefWidth="200.0" style="-fx-background-color: #1C1D1F;">
+         <children>
+            <TextField layoutX="15.0" layoutY="26.0" promptText="Change Max Mana" style="-fx-background-color: #3A3A3A; -fx-text-fill: #FFFFFF;" />
+            <Button layoutX="69.0" layoutY="68.0" mnemonicParsing="false" style="-fx-background-color: #646467;" text="Submit" textFill="WHITE" />
+            <TextField layoutX="15.0" layoutY="127.0" promptText="Add Mana" style="-fx-background-color: #3A3A3A; -fx-text-fill: #FFFFFF;" />
+            <Button layoutX="70.0" layoutY="168.0" mnemonicParsing="false" style="-fx-background-color: #646467;" text="Submit" textFill="WHITE" />
+            <TextField layoutX="16.0" layoutY="232.0" promptText="Remove Mana" style="-fx-background-color: #3A3A3A; -fx-text-fill: #FFFFFF;" />
+            <Button layoutX="71.0" layoutY="273.0" mnemonicParsing="false" style="-fx-background-color: #646467;" text="Submit" textFill="WHITE" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="266.0" layoutY="311.0" prefHeight="114.0" prefWidth="304.0" style="-fx-background-color: #1C1D1F;">
+         <children>
+            <Button layoutX="105.0" layoutY="44.0" mnemonicParsing="false" style="-fx-background-color: #646467;" text="Reset Mana" textFill="WHITE" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="266.0" layoutY="86.0" prefHeight="189.0" prefWidth="304.0" style="-fx-background-color: #1C1D1F;">
+         <children>
+            <Text fill="WHITE" layoutX="123.0" layoutY="120.0" strokeType="OUTSIDE" strokeWidth="0.0" text="XXX">
+               <font>
+                  <Font size="28.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" layoutX="44.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Current Mana:">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="31.0" layoutY="26.0" prefHeight="35.0" prefWidth="540.0" style="-fx-background-color: #1C1D1F;">
+         <children>
+            <Text fill="WHITE" layoutX="14.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ManaTrackerNameHere">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Text>
+            <Button layoutX="476.0" layoutY="4.0" mnemonicParsing="false" style="-fx-background-color: #646467;" text="Load" textFill="WHITE" />
+            <Button layoutX="420.0" layoutY="4.0" mnemonicParsing="false" style="-fx-background-color: #646467;" text="New" textFill="WHITE" />
+         </children>
+      </AnchorPane>
+   </children>
+</fx:root>
