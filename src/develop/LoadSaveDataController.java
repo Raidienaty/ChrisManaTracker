@@ -28,6 +28,7 @@ public class LoadSaveDataController extends AnchorPane
     private Text nameErrorMessage;
 
     private List<SaveData> saveDataList;
+    private SaveData loadData;
 
     public Group initializeLoadSaveData(Stage secondaryWindow, List<SaveData> saveDataList) throws IOException
     {
@@ -37,6 +38,32 @@ public class LoadSaveDataController extends AnchorPane
         setSaveDataList(saveDataList);
 
         return new Group(root);
+    }
+
+    @FXML
+    private void loadDataFromUsername()
+    {
+        String username = nameField.getText();
+
+        if (username.isEmpty())
+            return;
+        else if (!checkForUsernameInData(username))
+            return;
+
+        int positionInData = getPositionInData(username);
+
+        loadData = saveDataList.get(positionInData);
+    }
+
+    private int getPositionInData(String username)
+    {
+        for (int i = 0; i < saveDataList.size(); i++)
+        {
+            if (username.equals(saveDataList.get(i).getUsername()))
+                return i;
+        }
+
+        return -1;
     }
 
     private boolean checkForUsernameInData(String username)
