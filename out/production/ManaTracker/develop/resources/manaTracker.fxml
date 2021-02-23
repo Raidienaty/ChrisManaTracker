@@ -45,7 +45,7 @@
                   <Font size="20.0" />
                </font>
             </Text>
-            <Button layoutX="476.0" layoutY="4.0" mnemonicParsing="false" style="-fx-background-color: #646467;" text="Load" textFill="WHITE" />
+            <Button layoutX="476.0" layoutY="4.0" mnemonicParsing="false" style="-fx-background-color: #646467;" text="Load" textFill="WHITE" onAction="#loadFromMenu" />
             <Button layoutX="420.0" layoutY="4.0" mnemonicParsing="false" style="-fx-background-color: #646467;" text="New" textFill="WHITE" />
          </children>
       </AnchorPane>
