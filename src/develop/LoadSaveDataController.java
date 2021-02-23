@@ -34,6 +34,8 @@ public class LoadSaveDataController extends AnchorPane
     {
         Parent root = loadFXML();
 
+        syncMainAnchor(root);
+
         setSecondaryWindow(secondaryWindow);
         setSaveDataList(saveDataList);
 
@@ -47,7 +49,11 @@ public class LoadSaveDataController extends AnchorPane
         if (username.isEmpty())
             return;
         else if (!checkForUsernameInData(username))
+        {
+            nameErrorMessage.setVisible(true);
+
             return;
+        }
 
         int positionInData = getPositionInData(username);
 
@@ -84,6 +90,17 @@ public class LoadSaveDataController extends AnchorPane
     private void setSaveDataList(List<SaveData> saveDataList)
     {
         this.saveDataList = saveDataList;
+    }
+
+    private void syncMainAnchor(Parent root)
+    {
+        loadPane = (AnchorPane) root.getChildrenUnmodifiable().get(0);
+
+        nameField = (TextField) loadPane.getChildren().get(1);
+        nameSubmitButton = (Button) loadPane.getChildren().get(3);
+        nameErrorMessage = (Text) loadPane.getChildren().get(2);
+
+        nameErrorMessage.setVisible(false);
     }
 
     public Button getNameSubmitButton()
