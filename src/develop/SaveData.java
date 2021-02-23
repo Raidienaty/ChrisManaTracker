@@ -20,4 +20,14 @@ public class SaveData
     {
         return current;
     }
+
+    public void setMax(int max)
+    {
+        this.max = max;
+    }
+
+    public void setCurrent(int current)
+    {
+        this.current = current;
+    }
 }

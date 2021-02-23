@@ -14,6 +14,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -62,9 +63,12 @@ public class ManaTrackerController extends AnchorPane
     @FXML
     private Button loadButton;
 
+    private DataRequest dataRequest;
+
     private int maxMana;
     private int currentManaAmount;
     private List<SaveData> saveDataList;
+    private int positionInSaveData;
 
     public Group initializeManaTracker(Stage primaryStage) throws IOException
     {
@@ -75,20 +79,33 @@ public class ManaTrackerController extends AnchorPane
         syncManaPane(root);
         syncNameLoadPane(root);
 
+        setPrimaryStage(primaryStage);
+        setDataRequest(new DataRequest());
+        positionInSaveData = 0;
+
         loadSaveData();
 
-        setPrimaryStage(primaryStage);
+        primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>()
+        {
+            @Override
+            public void handle(WindowEvent windowEvent)
+            {
+                try
+                {
+                    dataRequest.saveSaveDataList(saveDataList);
+                } catch (IOException e)
+                {
+                    e.printStackTrace();
+                }
+            }
+        });
 
         return new Group(root);
     }
 
     private void loadSaveData() throws IOException
     {
-        InputStream inputStream = new FileInputStream("src/develop/resources/saveData.json");
-
-        String saveData = new String(inputStream.readAllBytes(), StandardCharsets.UTF_8);
-
-        saveDataList = new Gson().fromJson(saveData, new TypeToken<ArrayList<SaveData>>(){}.getType());
+        this.saveDataList = dataRequest.loadSaveData();
 
         maxMana = saveDataList.get(0).getMax();
         currentManaAmount = saveDataList.get(0).getCurrent();
@@ -145,6 +162,11 @@ public class ManaTrackerController extends AnchorPane
         this.primaryStage = primaryStage;
     }
 
+    public void setDataRequest(DataRequest dataRequest)
+    {
+        this.dataRequest = dataRequest;
+    }
+
     private Boolean checkIfInteger(String currentString)
     {
         try
@@ -164,6 +186,9 @@ public class ManaTrackerController extends AnchorPane
     {
         currentMana.setText(Integer.toString(0));
         currentManaAmount = 0;
+
+        saveDataList.get(positionInSaveData).setCurrent(0);
+        saveDataList.get(positionInSaveData).setMax(100);
     }
 
     @FXML
@@ -176,11 +201,18 @@ public class ManaTrackerController extends AnchorPane
         else if (!checkIfInteger(removeManaText))
             return;
 
-        currentManaAmount -= Integer.parseInt(removeManaText);
+        int removeAmount = Integer.parseInt(removeManaText);
+
+        if (currentManaAmount - removeAmount <= 0)
+            return;
+
+        currentManaAmount -= removeAmount;
 
         currentMana.setText(Integer.toString(currentManaAmount));
 
         removeManaField.clear();
+
+        saveDataList.get(positionInSaveData).setCurrent(currentManaAmount);
     }
 
     @FXML
@@ -203,6 +235,8 @@ public class ManaTrackerController extends AnchorPane
         currentMana.setText(Integer.toString(currentManaAmount));
 
         addManaField.clear();
+
+        saveDataList.get(positionInSaveData).setCurrent(currentManaAmount);
     }
 
     @FXML
@@ -218,6 +252,8 @@ public class ManaTrackerController extends AnchorPane
         maxMana = Integer.parseInt(changeMaxManaText);
 
         changeMaxManaField.clear();
+
+        saveDataList.get(positionInSaveData).setMax(maxMana);
     }
 
     @FXML
@@ -249,9 +285,14 @@ public class ManaTrackerController extends AnchorPane
 
             SaveData loadData = loadSaveDataController.getLoadData();
 
+            this.positionInSaveData = loadSaveDataController.getPositionInData(loadData.getUsername());
+
             maxMana = loadData.getMax();
             currentManaAmount = loadData.getCurrent();
             currentMana.setText(Integer.toString(currentManaAmount));
+
+            name.setText(loadData.getUsername());
         });
     }
+
 }

@@ -58,9 +58,11 @@ public class LoadSaveDataController extends AnchorPane
         int positionInData = getPositionInData(username);
 
         loadData = saveDataList.get(positionInData);
+
+        secondaryWindow.close();
     }
 
-    private int getPositionInData(String username)
+    public int getPositionInData(String username)
     {
         for (int i = 0; i < saveDataList.size(); i++)
         {

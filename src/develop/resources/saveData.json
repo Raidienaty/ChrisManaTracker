@@ -1,10 +1,1 @@
-[{
-  "username": "defaultSave",
-  "max": 100,
-  "current": 80
-},
-{
-  "username": "secondSave",
-  "max": 1000,
-  "current": 200
-}]
+[{"username":"defaultSave","max":100,"current":80},{"username":"secondSave","max":1000,"current":300}]
