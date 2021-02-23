@@ -40,8 +40,7 @@ public class LoadSaveDataController extends AnchorPane
         return new Group(root);
     }
 
-    @FXML
-    private void loadDataFromUsername()
+    public void loadDataFromUsername()
     {
         String username = nameField.getText();
 
@@ -87,6 +86,11 @@ public class LoadSaveDataController extends AnchorPane
         this.saveDataList = saveDataList;
     }
 
+    public Button getNameSubmitButton()
+    {
+        return nameSubmitButton;
+    }
+
     private Parent loadFXML() throws IOException
     {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("resources/loadSaveData.fxml"));
@@ -95,5 +99,10 @@ public class LoadSaveDataController extends AnchorPane
         fxmlLoader.setController(this);
 
         return fxmlLoader.load();
+    }
+
+    public SaveData getLoadData()
+    {
+        return loadData;
     }
 }

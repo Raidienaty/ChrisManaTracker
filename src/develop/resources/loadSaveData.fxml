@@ -22,7 +22,7 @@
                   <Font size="15.0" />
                </font>
             </Text>
-            <Button layoutX="93.0" layoutY="201.0" mnemonicParsing="false" style="-fx-background-color: #646467;" text="Submit" textFill="WHITE" onAction="#loadDataFromUsername" />
+            <Button layoutX="93.0" layoutY="201.0" mnemonicParsing="false" style="-fx-background-color: #646467;" text="Submit" textFill="WHITE" />
          </children>
       </AnchorPane>
    </children>
